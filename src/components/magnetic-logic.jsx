@@ -1,42 +1,10 @@
+"use client";
+import Link from "next/link";
 import { useRef, useEffect, useState } from "react";
 
 const MagneticButton = () => {
   const btnRef = useRef(null);
   const [sidebarOpen, setSidebarOpen] = useState(false);
-
-  useEffect(() => {
-    const btn = btnRef.current;
-    const strength = 0.45;
-    const hoverArea = 120;
-
-    const handleMove = (e) => {
-      const rect = btn.getBoundingClientRect();
-      const cx = rect.left + rect.width / 2;
-      const cy = rect.top + rect.height / 2;
-
-      const dx = e.clientX - cx;
-      const dy = e.clientY - cy;
-      const dist = Math.sqrt(dx * dx + dy * dy);
-
-      if (dist < hoverArea) {
-        btn.style.transform = `translate(${dx * strength}px, ${dy * strength}px) scale(1.12)`;
-      } else {
-        btn.style.transform = "translate(0,0) scale(1)";
-      }
-    };
-
-    const reset = () => {
-      btn.style.transform = "translate(0,0) scale(1)";
-    };
-
-    window.addEventListener("mousemove", handleMove);
-    window.addEventListener("mouseleave", reset);
-
-    return () => {
-      window.removeEventListener("mousemove", handleMove);
-      window.removeEventListener("mouseleave", reset);
-    };
-  }, []);
 
   return (
     <>
@@ -50,18 +18,105 @@ const MagneticButton = () => {
 
       {/* Overlay */}
       <div
-        className={`magnet-sidebar-overlay ${sidebarOpen ? "magnet-sidebar-overlay--show" : ""}`}
+        className={`magnet-sidebar-overlay ${
+          sidebarOpen ? "magnet-sidebar-overlay--show" : ""
+        }`}
         onClick={() => setSidebarOpen(false)}
       ></div>
 
       {/* Sidebar */}
-      <div className={`right-sidebar ${sidebarOpen ? "right-sidebar--open" : ""}`}>
+      <div
+        className={`right-sidebar ${sidebarOpen ? "right-sidebar--open" : ""}`}
+      >
         <button className="sidebar-close" onClick={() => setSidebarOpen(false)}>
-          ✕
+          <i className="fa-solid fa-xmark"></i>
         </button>
 
-        <h2>Contact Us</h2>
-        <p>This is your sliding sidebar 😎</p>
+        <h2 className="primary-font">got a project?</h2>
+        <p className="para-sm mb-5">
+          Share the details of your project – like scope, timeframes, or
+          business challenges. Our team will thoroughly review the materials and
+          respond to you promptly.
+        </p>
+        <form action="#">
+          <div className="mb-4 form-group">
+            <label className="para-sm mb-2">I'm interested in</label>
+            <div className="d-flex flex-wrap gap-2">
+              <input
+                type="checkbox"
+                name="interested_1"
+                className="d-none radio"
+                id="web"
+                value="Custom Software"
+              />
+              <label className="radio-label type-label" for="web">
+                Custom Software
+              </label>
+              <input
+                type="checkbox"
+                name="interested_2"
+                className="d-none radio"
+                id="app"
+                value="Mobile App"
+              />
+              <label className="radio-label type-label" for="app">
+                Mobile App
+              </label>
+              <input
+                type="checkbox"
+                name="interested_3"
+                className="d-none radio"
+                id="ui"
+                value="UI/UX"
+              />
+              <label className="radio-label type-label" for="ui">
+                UI/UX
+              </label>
+              <input
+                type="checkbox"
+                name="interested_4"
+                className="d-none radio"
+                id="dev"
+                value="Web Development"
+              />
+              <label className="radio-label type-label" for="dev">
+                Web Development
+              </label>
+            </div>
+          </div>
+          <div className="mb-3 form-group">
+            <input type="text" className="idea-field" placeholder="Your Name" />
+          </div>
+          <div className="row">
+            <div className="mb-3 col-12 col-md-6">
+              <input
+                type="email"
+                className="idea-field"
+                placeholder="Your Email"
+              />
+            </div>
+            <div className="mb-3 col-12 col-md-6">
+              <input
+                type="tel"
+                className="idea-field"
+                placeholder="Your Phone"
+              />
+            </div>
+          </div>
+          <div className="mb-3 form-group">
+            <input type="text" className="idea-field" placeholder="Your Message" />
+          </div>
+          <button className="idea-submit-btn" type="submit">SEND MESSAGE</button>
+        </form>
+        <p className="para-xs mt-4 mb-4">We'll keep your information in our CRM to respond to your request. For more details, consult our <Link href="#">Privacy Policy</Link></p>
+        <div className="row">
+          <div className="col-6">
+            <Link href="#" className="d-block idea-submit-btn text-center w-100 text-decoration-none">CONTACT NOW</Link>
+          </div>
+          <div className="col-6">
+            <Link href="#" className="d-block idea-submit-btn text-center w-100 text-decoration-none">CHAT NOW</Link>
+          </div>
+        </div>
       </div>
     </>
   );

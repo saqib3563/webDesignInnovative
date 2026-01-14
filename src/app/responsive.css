@@ -364,6 +364,10 @@
         height: 50px;
     }
 
+    .service-link-area {
+        gap: 0 20px;
+    }
+
     .category {
         padding: 5px 18px;
         display: flex;
@@ -436,6 +440,10 @@
 
     .idea-para {
         font-size: 1.1rem;
+    }
+
+    .service-link-area a {
+        font-size: 57px;
     }
 }
 
@@ -652,6 +660,14 @@
         font-size: 16px;
     }
 
+    .service-link-area a {
+        font-size: 48px;
+    }
+
+    .service-link-area {
+        margin-bottom: 35px;
+    }
+
     .quick-link {
         font-size: 18px;
     }
@@ -790,6 +806,18 @@
         display: none !important;
     }
 
+    .service-link-area a {
+        font-size: 27px;
+    }
+
+    .divide {
+        width: 45px;
+    }
+
+    .service-link-area {
+        margin-bottom: 21px;
+    }
+
     .my-btn-slide {
         width: 45px;
         height: 45px;
@@ -828,6 +856,10 @@
         align-items: flex-start;
         margin-top: 30px;
         gap: 40px;
+    }
+
+    .service-link-area a {
+        font-size: 25px;
     }
 
     .footer-upper .row {
@@ -1017,6 +1049,21 @@
         gap: 20px;
     }
 
+    .service-link-area {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .service-link-area a {
+        width: unset;
+        border-bottom: 2px solid #fff;
+        text-align: center !important;
+    }
+
+    .divide {
+        height: unset;
+    }
+
     .blog-image-area p {
         font-size: 0.8rem;
     }
@@ -1047,7 +1094,7 @@
     .card-custom .btn-main .text {
         display: none;
     }
-    
+
     .card-custom .btn-main .text {
         margin-right: 0 !important;
     }

@@ -231,7 +231,7 @@ const HeroBanner = () => {
             >
               INNOVATORS
             </h2>
-            <MagneticButton/>
+            
           </div>
         </div>
       </div>

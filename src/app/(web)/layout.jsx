@@ -1,5 +1,5 @@
-import "bootstrap/dist/css/bootstrap.min.css"
-import "@fortawesome/fontawesome-free/css/all.min.css"
+import "bootstrap/dist/css/bootstrap.min.css";
+import "@fortawesome/fontawesome-free/css/all.min.css";
 import "../globals.css";
 import "../responsive.css";
 import ClientLayout from "@/components/ClientLayout";
@@ -9,6 +9,7 @@ import Header from "@/components/Header";
 import { SideBarProvider } from "../context";
 import SideBar from "@/components/side-bar";
 import MagicCursor from "@/components/MagicCursor";
+import MagneticButton from "@/components/magnetic-logic";
 
 export const metadata = {
   title: "Create Next App",
@@ -20,12 +21,13 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
         <AOSInit />
-      <MagicCursor />
+        <MagicCursor />
         <SideBarProvider>
-          <SideBar/>
+          <SideBar />
           <ClientLayout>
             <Header />
             <main>{children}</main>
+            <MagneticButton />
             <Footer />
           </ClientLayout>
         </SideBarProvider>
