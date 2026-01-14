@@ -227,9 +227,9 @@ const GlobeSection = () => {
       className="padd-y globe-section"
       style={{ backgroundImage: `url(${globeImg.src})` }}
     >
-                    <button className="next-person" onClick={rotateNext}>
-              Next
-            </button>
+      <button className="next-person" onClick={rotateNext}>
+        <i class="fa-solid fa-arrow-right"></i>
+      </button>
       <div
         style={{
           width: "100%",

@@ -6,8 +6,38 @@ import { instrument_sans, inter } from "@/app/(web)/assets/fonts/custom";
 import Link from "next/link";
 import { useRef } from "react";
 import { usePathname } from "next/navigation";
+import SwiperComponent from "./slider";
+import { SwiperSlide } from "swiper/react";
+import logo1 from "@/app/(web)/assets/images/footer-logo-1.webp";
+import logo2 from "@/app/(web)/assets/images/footer-logo-2.webp";
+import logo3 from "@/app/(web)/assets/images/footer-logo-3.webp";
+import logo4 from "@/app/(web)/assets/images/footer-logo-4.webp";
+import logo5 from "@/app/(web)/assets/images/footer-logo-5.webp";
+import logo6 from "@/app/(web)/assets/images/footer-logo-6.webp";
+import logo7 from "@/app/(web)/assets/images/footer-logo-7.webp";
+import logo8 from "@/app/(web)/assets/images/footer-logo-8.webp";
+import logo9 from "@/app/(web)/assets/images/footer-logo-9.webp";
+import logo10 from "@/app/(web)/assets/images/footer-logo-10.webp";
+import logo11 from "@/app/(web)/assets/images/footer-logo-11.webp";
+import logo12 from "@/app/(web)/assets/images/footer-logo-12.webp";
 
 const Footer = () => {
+  // --- Dynamic logos array ---
+  const logos = [
+    logo1,
+    logo2,
+    logo3,
+    logo4,
+    logo5,
+    logo6,
+    logo7,
+    logo8,
+    logo9,
+    logo10,
+    logo11,
+    logo12,
+  ];
+
   const footerRef = useRef(null);
   const path = usePathname();
   const navLinks = [
@@ -228,15 +258,25 @@ const Footer = () => {
               </div>
               <ul className="footer-social-links">
                 <li>
-                  <Link href="#"><i className="fa-brands fa-facebook"></i></Link>
+                  <Link href="#">
+                    <i className="fa-brands fa-facebook"></i>
+                  </Link>
                 </li>
                 <li>
-                  <Link href="#"><i className="fa-brands fa-x-twitter"></i></Link>
+                  <Link href="#">
+                    <i className="fa-brands fa-x-twitter"></i>
+                  </Link>
                 </li>
                 <li>
-                  <Link href="#"><i className="fa-brands fa-instagram"></i></Link>
+                  <Link href="#">
+                    <i className="fa-brands fa-instagram"></i>
+                  </Link>
                 </li>
-                <li><Link href="#"><i className="fa-brands fa-linkedin"></i></Link></li>
+                <li>
+                  <Link href="#">
+                    <i className="fa-brands fa-linkedin"></i>
+                  </Link>
+                </li>
               </ul>
               <div className="text-end">
                 <Link
@@ -252,6 +292,39 @@ const Footer = () => {
                   Terms & Conditions
                 </Link>
               </div>
+            </div>
+
+            {/* my slider herer */}
+            {/* === Dynamic Footer Slider === */}
+            <div className="footer-logo-slider">
+              <SwiperComponent
+                spaceBetween={30}
+                slidesPerView={5}
+                loop={true}
+                autoplay={{ delay: 1000 }}
+                speed={2000}
+                breakpoints={{
+                  1280: { slidesPerView: 5, }, // large screens
+                  1024: { slidesPerView: 4 },
+                  768: { slidesPerView: 3 },
+                  500: { slidesPerView: 2 },
+                  0: { slidesPerView: 1 }, // mobile
+                }}
+              >
+                {logos.map((logo, index) => (
+                  <SwiperSlide key={index}>
+                    <Link href="#">
+                      <Image
+                        src={logo}
+                        alt={`logo-${index}`}
+                        width={245}
+                        height={100}
+                        style={{ objectFit: "contain" }}
+                      />
+                    </Link>
+                  </SwiperSlide>
+                ))}
+              </SwiperComponent>
             </div>
           </div>
         </div>

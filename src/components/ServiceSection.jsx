@@ -34,7 +34,7 @@ const ServiceSection = () => {
     ]
 
     const changeImage = useCallback((index) => {
-        if (index === currentImage) return; // Same image prevent
+        if (index === currentImage) return;
         
         const el = imageRef.current
         if (!el) return

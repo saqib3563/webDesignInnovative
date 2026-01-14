@@ -1,22 +1,43 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import Image from "next/image";
-import sliderImage from "@/app/(web)/assets/images/slide-1.webp"
-import sliderImage2 from "@/app/(web)/assets/images/slide-2.webp"
-import sliderImage3 from "@/app/(web)/assets/images/slide-3.webp"
+import sliderImage from "@/app/(web)/assets/images/slide-1.webp";
+import sliderImage2 from "@/app/(web)/assets/images/slide-2.webp";
+import sliderImage3 from "@/app/(web)/assets/images/slide-3.webp";
 import { instrument_sans } from "@/app/(web)/assets/fonts/custom";
 
-
+const slides = [
+  {
+    img: sliderImage,
+    category: ["Web & App Design", "Responsive Frontends"],
+    para: "Landing page design for news platform",
+    title: "Project Name",
+  },
+  {
+    img: sliderImage2,
+    category: ["Web & App Design", "Responsive Frontends"],
+    para: "Landing page design for news platform",
+    title: "Project Name",
+  },
+  {
+    img: sliderImage3,
+    category: ["Web & App Design", "Responsive Frontends"],
+    para: "Logo Design",
+    title: "Project Name",
+  },
+];
 
 const SliderSection2 = () => {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const wrapperRef = useRef(null);
+
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
-    let panels = gsap.utils.toArray(".panel")
-      ;
+    const panels = gsap.utils.toArray(".panel");
 
     panels.forEach((panel, i) => {
       ScrollTrigger.create({
@@ -25,111 +46,88 @@ const SliderSection2 = () => {
         pin: true,
         pinSpacing: false,
         anticipatePin: 1,
-        invalidateOnRefresh: true
+        invalidateOnRefresh: true,
+        onEnter: () => setActiveIndex(i),
+        onEnterBack: () => setActiveIndex(i),
       });
     });
 
-    let maxScroll;
-    let pageScrollTrigger = ScrollTrigger.create({ // snap whole page to the closest section!
-      // normally we'd just do snap: 1 / panels.length but we'll use a function-based value so that we can handle the very start and end values in a special way to prevent looping on the snap
-      snap: false
+    // 🔥 DOTS VISIBILITY BASED ON WHOLE SLIDER
+    ScrollTrigger.create({
+      trigger: wrapperRef.current,
+      start: "top top",
+      end: "bottom bottom",
+      onEnter: () => {
+        document.querySelector(".dots-area")?.classList.add("show-dots");
+      },
+      onLeave: () => {
+        document.querySelector(".dots-area")?.classList.remove("show-dots");
+      },
+      onEnterBack: () => {
+        document.querySelector(".dots-area")?.classList.add("show-dots");
+      },
+      onLeaveBack: () => {
+        document.querySelector(".dots-area")?.classList.remove("show-dots");
+      },
     });
-    function onResize() {
-      maxScroll = ScrollTrigger.maxScroll(window) - 1;
-    }
-    onResize();
-    window.addEventListener("resize", onResize);
 
-  }, [])
+    ScrollTrigger.refresh();
+  }, []);
+
   return (
-  <div className="position-relative">
-    <section className="panel green">
-      <Image fill className="image img-fluid" loading="lazy" quality={100} sizes="100vw" src={sliderImage} alt="" />
-     <div className="content_area padd-x pt-5" >
-        <div className="category-area">
-          <div className="category">
-            <a href="#" className="text-decoration-none">
-              <span className={`${instrument_sans.className} category-font`}>Web & App Design</span>
-            </a>
-          </div>
-          <div className="category">
-            <a href="#" className="text-decoration-none">
-              <span className={`${instrument_sans.className} category-font`}>Responsive Frontends</span>
-            </a>
-          </div>
-        </div>
-        <div><p className="para-section mb-3">Landing page design for news platform</p>
-          <h2 className="primary-font">Project Name</h2></div>
-      </div>
-      <div className='dots-area'>
-        {[...Array(3)].map((_, i) => (
-          <span key={i - 1} className={`custom-bullet primary-font ${i === 0 ? 'active' : ''}`
-          }>0{i + 1}</span>))}
-      </div>
-    </section>
-    <section className="panel green">
-      <Image fill className="image img-fluid" loading="lazy" quality={100} sizes="100vw" src={sliderImage2} alt="" />
-      <div className="content_area padd-x pt-5">
-        <div className="category-area">
-          <div className="category">
-            <a href="#" className="text-decoration-none">
-              <span className={`${instrument_sans.className} category-font`}>Web & App Design</span>
-            </a>
-          </div>
-          <div className="category">
-            <a href="#" className="text-decoration-none">
-              <span className={`${instrument_sans.className} category-font`}>Responsive Frontends</span>
-            </a>
-          </div>
-        </div>
-        <div><p className="para-section mb-3">Landing page design for news platform</p>
-          <h2 className="primary-font">Project Name</h2></div>
-      </div>
-      <div className='dots-area'>
+    <div ref={wrapperRef} className="position-relative">
 
-        {[...Array(3)].map((_, i) => (
-
-          <span key={i - 1} className={`custom-bullet primary-font ${i === 1 ? 'active' : ''}`
-          }>0{i + 1}</span>))}
-      </div>
-    </section>
-
-    <section className="panel green">
-      <Image fill className="image img-fluid last-image" loading="lazy" quality={100} sizes="100vw" src={sliderImage3} alt="" />
-      <div className="content_area padd-x pt-5">
-        {/* Categories */}
-        <div className="category-area">
-          <div className="category">
-            <a href="#" className="text-decoration-none">
-              <span className={`${instrument_sans.className} category-font`}>Web & App Design</span>
-            </a>
-          </div>
-          <div className="category">
-            <a href="#" className="text-decoration-none">
-              <span className={`${instrument_sans.className} category-font`}>Responsive Frontends</span>
-            </a>
-          </div>
-        </div>
-
-        {/* Project Title */}
-        <div className="mt-4">
-          <p className="para-section mb-3">Logo Design</p>
-          <h2 className="primary-font">Project Name</h2>
-        </div>
+      {/* ===== SINGLE DOTS UI ===== */}
+      <div className="dots-area">
+        {slides.map((_, i) => (
+          <span
+            key={i}
+            className={`custom-bullet primary-font ${
+              i === activeIndex ? "active" : ""
+            }`}
+          >
+            0{i + 1}
+          </span>
+        ))}
       </div>
 
-      <div className='dots-area'>
+      {/* ===== SLIDES ===== */}
+      {slides.map((slide, index) => (
+        <section key={index} className="panel green">
+          <Image
+            fill
+            className={`image img-fluid ${
+              index === slides.length - 1 ? "last-image" : ""
+            }`}
+            loading="lazy"
+            quality={100}
+            sizes="100vw"
+            src={slide.img}
+            alt=""
+          />
 
-        {[...Array(3)].map((_, i) => (
+          <div className="content_area padd-x pt-5">
+            <div className="category-area">
+              {slide.category.map((cat, i) => (
+                <div key={i} className="category">
+                  <a href="#" className="text-decoration-none">
+                    <span className={`${instrument_sans.className} category-font`}>
+                      {cat}
+                    </span>
+                  </a>
+                </div>
+              ))}
+            </div>
 
-          <span key={i - 1} className={`custom-bullet primary-font ${i === 2 ? 'active' : ''}`
-          }>0{i + 1}</span>))}
-      </div>
-    </section>
-
-
-  </div>
-  )
-}
+            <div className="mt-4">
+              <p className="para-section mb-3">{slide.para}</p>
+              <h2 className="primary-font">{slide.title}</h2>
+            </div>
+          </div>
+        </section>
+      ))}
+    </div>
+  );
+};
 
 export default SliderSection2;
