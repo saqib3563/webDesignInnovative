@@ -7,6 +7,8 @@ import Image from "next/image";
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { bebas_neu } from "@/app/(web)/assets/fonts/custom";
+import SliderSection2 from "@/components/slider-section-2";
+import MagneticButton from "@/components/magnetic-logic";
 
 const HeroBanner = () => {
   const containerRef = useRef(null);
@@ -229,7 +231,7 @@ const HeroBanner = () => {
             >
               INNOVATORS
             </h2>
-
+            <MagneticButton/>
           </div>
         </div>
       </div>

@@ -48,10 +48,14 @@ const SliderSection2 = () => {
      <div className="content_area padd-x pt-5" >
         <div className="category-area">
           <div className="category">
-            <span className={`${instrument_sans.className} category-font`}>Web & App Design</span>
+            <a href="#" className="text-decoration-none">
+              <span className={`${instrument_sans.className} category-font`}>Web & App Design</span>
+            </a>
           </div>
           <div className="category">
-            <span className={`${instrument_sans.className} category-font`}>Responsive Frontends</span>
+            <a href="#" className="text-decoration-none">
+              <span className={`${instrument_sans.className} category-font`}>Responsive Frontends</span>
+            </a>
           </div>
         </div>
         <div><p className="para-section mb-3">Landing page design for news platform</p>
@@ -68,10 +72,14 @@ const SliderSection2 = () => {
       <div className="content_area padd-x pt-5">
         <div className="category-area">
           <div className="category">
-            <span className={`${instrument_sans.className} category-font`}>Web & App Design</span>
+            <a href="#" className="text-decoration-none">
+              <span className={`${instrument_sans.className} category-font`}>Web & App Design</span>
+            </a>
           </div>
           <div className="category">
-            <span className={`${instrument_sans.className} category-font`}>Responsive Frontends</span>
+            <a href="#" className="text-decoration-none">
+              <span className={`${instrument_sans.className} category-font`}>Responsive Frontends</span>
+            </a>
           </div>
         </div>
         <div><p className="para-section mb-3">Landing page design for news platform</p>
@@ -92,10 +100,14 @@ const SliderSection2 = () => {
         {/* Categories */}
         <div className="category-area">
           <div className="category">
-            <span className={`${instrument_sans.className} category-font`}>Web & App Design</span>
+            <a href="#" className="text-decoration-none">
+              <span className={`${instrument_sans.className} category-font`}>Web & App Design</span>
+            </a>
           </div>
           <div className="category">
-            <span className={`${instrument_sans.className} category-font`}>Responsive Frontends</span>
+            <a href="#" className="text-decoration-none">
+              <span className={`${instrument_sans.className} category-font`}>Responsive Frontends</span>
+            </a>
           </div>
         </div>
 
