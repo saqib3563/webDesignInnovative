@@ -140,7 +140,8 @@ const Footer = () => {
                 </div>
                 <div className="order-1 order-md-0 col-md-9">
                   <h4 className="mb-4 quick-link-hd">
-                    <i className="fa-solid fa-circle animate-pulse"></i> Services
+                    <i className="fa-solid fa-circle animate-pulse"></i>{" "}
+                    Services
                   </h4>
                   <div className="row">
                     <div className="col-12 col-md-4">
@@ -242,55 +243,62 @@ const Footer = () => {
 
             <span className="separator" />
 
-            <div className="last-row">
-              <div>
-                <p
-                  className={`footer-para-1 mb-3 ${instrument_sans.className}`}
-                >
-                  © {new Date().getFullYear()} – Web Design Innovators
-                </p>
-                <Link
-                  href="mailto:contact@webdesigninnovations.com"
-                  className="last-link primary-font"
-                >
-                  contact@webdesigninnovations.com
-                </Link>
+            <div className="last-row"></div>
+            <div className="row align-items-center">
+              <div className="mb-4 col-md-4 mb-md-6">
+                <div>
+                  <p
+                    className={`footer-para-1 mb-3 ${instrument_sans.className}`}
+                  >
+                    © {new Date().getFullYear()} – Web Design Innovators
+                  </p>
+                  <Link
+                    href="mailto:contact@webdesigninnovations.com"
+                    className="last-link primary-font"
+                  >
+                    contact@webdesigninnovations.com
+                  </Link>
+                </div>
               </div>
-              <ul className="footer-social-links">
-                <li>
-                  <Link href="#">
-                    <i className="fa-brands fa-facebook"></i>
+              <div className="col-md-4 order-1 order-md-0">
+                <ul className="footer-social-links">
+                  <li>
+                    <Link href="#">
+                      <i className="fa-brands fa-facebook"></i>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="#">
+                      <i className="fa-brands fa-x-twitter"></i>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="#">
+                      <i className="fa-brands fa-instagram"></i>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="#">
+                      <i className="fa-brands fa-linkedin"></i>
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+              <div className="mb-4 col-md-4 mb-md-0">
+                <div className="text-end">
+                  <Link
+                    href="#"
+                    className={`footer-para-1 d-block mb-2 ${instrument_sans.className}`}
+                  >
+                    Privacy Policy
                   </Link>
-                </li>
-                <li>
-                  <Link href="#">
-                    <i className="fa-brands fa-x-twitter"></i>
+                  <Link
+                    href="#"
+                    className={`footer-para-1 d-block ${instrument_sans.className}`}
+                  >
+                    Terms & Conditions
                   </Link>
-                </li>
-                <li>
-                  <Link href="#">
-                    <i className="fa-brands fa-instagram"></i>
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#">
-                    <i className="fa-brands fa-linkedin"></i>
-                  </Link>
-                </li>
-              </ul>
-              <div className="text-end">
-                <Link
-                  href="#"
-                  className={`footer-para-1 d-block mb-2 ${instrument_sans.className}`}
-                >
-                  Privacy Policy
-                </Link>
-                <Link
-                  href="#"
-                  className={`footer-para-1 d-block ${instrument_sans.className}`}
-                >
-                  Terms & Conditions
-                </Link>
+                </div>
               </div>
             </div>
 
@@ -304,7 +312,7 @@ const Footer = () => {
                 autoplay={{ delay: 1000 }}
                 speed={2000}
                 breakpoints={{
-                  1280: { slidesPerView: 5, }, // large screens
+                  1280: { slidesPerView: 5 }, // large screens
                   1024: { slidesPerView: 4 },
                   768: { slidesPerView: 3 },
                   500: { slidesPerView: 2 },
