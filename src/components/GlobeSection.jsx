@@ -224,30 +224,32 @@ const GlobeSection = () => {
   };
 
   const rotatePrev = () => {
-  if (!circleRef.current) return;
+    if (!circleRef.current) return;
 
-  const currentRotation = gsap.getProperty(circleRef.current, "rotate");
-  const prevRotation = Number(currentRotation) - 20;
+    const currentRotation = gsap.getProperty(circleRef.current, "rotate");
+    const prevRotation = Number(currentRotation) - 20;
 
-  gsap.to(circleRef.current, {
-    rotate: prevRotation,
-    duration: 0.8,
-    ease: "power2.out",
-    overwrite: "auto",
-  });
-};
+    gsap.to(circleRef.current, {
+      rotate: prevRotation,
+      duration: 0.8,
+      ease: "power2.out",
+      overwrite: "auto",
+    });
+  };
 
   return (
     <section
       className="padd-y globe-section"
       style={{ backgroundImage: `url(${globeImg.src})` }}
     >
-      <button className="previous-person" onClick={rotatePrev}>
-        <i className="fa-solid fa-circle-chevron-left"></i>
-      </button>
-      <button className="next-person" onClick={rotateNext}>
-        <i className="fa-solid fa-circle-chevron-right"></i>
-      </button>
+      <div className="next-btn-wrap">
+        <button className="previous-person" onClick={rotatePrev}>
+          <i className="fa-solid fa-arrow-left"></i>
+        </button>
+        <button className="next-person" onClick={rotateNext}>
+          <i className="fa-solid fa-arrow-right"></i>
+        </button>
+      </div>
       <div
         style={{
           width: "100%",
@@ -331,7 +333,7 @@ const GlobeSection = () => {
               </span>
             </button> */}
             <div className="d-flex justify-content-center">
-              <FancyButton text="More Reviews"/>
+              <FancyButton text="More Reviews" />
             </div>
           </div>
         </div>

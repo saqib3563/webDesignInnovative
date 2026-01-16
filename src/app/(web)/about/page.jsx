@@ -1,11 +1,23 @@
-import React from 'react'
+import AboutUsBanner from "@/components/AboutUsBanner";
+import FaqSection from "@/components/FaqsSection";
+import GlobeSection from "@/components/GlobeSection";
+import MissionSection from "@/components/MissionSection";
+import React from "react";
 
 const page = () => {
   return (
-    <div>
-      
-    </div>
-  )
-}
+    <>
+      <AboutUsBanner />
 
-export default page
+      <MissionSection/>
+
+      {/* Globe Section */}
+      <GlobeSection />
+
+      {/* Faq Section */}
+      <FaqSection />
+    </>
+  );
+};
+
+export default page;

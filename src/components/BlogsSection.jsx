@@ -83,7 +83,7 @@ const Blogs = () => {
             >
               [ Blogs ]
             </span>
-            <h2 className="primary-font">Insights & Updates</h2>
+            <h2 className="primary-font reveal-text">Insights & Updates</h2>
           </div>
           <div className="col-lg-4 col-12">
             <p
