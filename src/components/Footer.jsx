@@ -139,8 +139,8 @@ const Footer = () => {
                   </ul>
                 </div>
                 <div className="order-1 order-md-0 col-md-9">
-                  <h4 class="mb-4 quick-link-hd">
-                    <i class="fa-solid fa-circle animate-pulse"></i> Services
+                  <h4 className="mb-4 quick-link-hd">
+                    <i className="fa-solid fa-circle animate-pulse"></i> Services
                   </h4>
                   <div className="row">
                     <div className="col-12 col-md-4">

@@ -147,7 +147,7 @@ const Blogs = () => {
                 <div className="blog-cards">
                   <div className="blog-border">
                     <div className="blog-name-area award-item">
-                      <Image src={slide.img} height={60} width={130}/>
+                      <Image src={slide.img} height={60} width={130} alt=""/>
                       <p className="rating-para">
                         <i className="fa-solid fa-star"></i>
                         {slide.rating}

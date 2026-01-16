@@ -6,6 +6,42 @@ const MagneticButton = () => {
   const btnRef = useRef(null);
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
+  useEffect(() => {
+    const btn = btnRef.current;
+
+    // Initial: hidden
+    btn.style.transform = "scale(0)";
+    btn.style.opacity = "0";
+    btn.style.transition = "transform 0.5s ease, opacity 0.5s ease";
+
+    // 5 seconds delay after page load
+    const timer = setTimeout(() => {
+      btn.style.transform = "scale(1)";
+      btn.style.opacity = "1";
+    }, 5000);
+
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+
+      if (scrollY > 100) {
+        // Scroll down → zoom out
+        btn.style.transform = "scale(0.8)";
+        btn.style.opacity = "0";
+      } else {
+        // Scroll up → zoom in
+        btn.style.transform = "scale(1)";
+        btn.style.opacity = "1";
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
     <>
       {/* Magnetic Button */}
@@ -25,7 +61,7 @@ const MagneticButton = () => {
       ></div>
 
       {/* Sidebar */}
-      <div
+      <div data-lenis-prevent-wheel
         className={`right-sidebar ${sidebarOpen ? "right-sidebar--open" : ""}`}
       >
         <button className="sidebar-close" onClick={() => setSidebarOpen(false)}>
@@ -49,7 +85,7 @@ const MagneticButton = () => {
                 id="web"
                 value="Custom Software"
               />
-              <label className="radio-label type-label" for="web">
+              <label className="radio-label type-label" htmlFor="web">
                 Custom Software
               </label>
               <input
@@ -59,7 +95,7 @@ const MagneticButton = () => {
                 id="app"
                 value="Mobile App"
               />
-              <label className="radio-label type-label" for="app">
+              <label className="radio-label type-label" htmlFor="app">
                 Mobile App
               </label>
               <input
@@ -69,7 +105,7 @@ const MagneticButton = () => {
                 id="ui"
                 value="UI/UX"
               />
-              <label className="radio-label type-label" for="ui">
+              <label className="radio-label type-label" htmlFor="ui">
                 UI/UX
               </label>
               <input
@@ -79,7 +115,7 @@ const MagneticButton = () => {
                 id="dev"
                 value="Web Development"
               />
-              <label className="radio-label type-label" for="dev">
+              <label className="radio-label type-label" htmlFor="dev">
                 Web Development
               </label>
             </div>

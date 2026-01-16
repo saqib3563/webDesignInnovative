@@ -16,6 +16,7 @@ import client_image_8 from "@/app/(web)/assets/images/client_image-8.png";
 import client_image_9 from "@/app/(web)/assets/images/client_image-9.png";
 
 import Image from "next/image";
+import FancyButton from "./FancyButton";
 gsap.registerPlugin(ScrollTrigger);
 
 const testimonials = [
@@ -222,13 +223,30 @@ const GlobeSection = () => {
     });
   };
 
+  const rotatePrev = () => {
+  if (!circleRef.current) return;
+
+  const currentRotation = gsap.getProperty(circleRef.current, "rotate");
+  const prevRotation = Number(currentRotation) - 20;
+
+  gsap.to(circleRef.current, {
+    rotate: prevRotation,
+    duration: 0.8,
+    ease: "power2.out",
+    overwrite: "auto",
+  });
+};
+
   return (
     <section
       className="padd-y globe-section"
       style={{ backgroundImage: `url(${globeImg.src})` }}
     >
+      <button className="previous-person" onClick={rotatePrev}>
+        <i className="fa-solid fa-circle-chevron-left"></i>
+      </button>
       <button className="next-person" onClick={rotateNext}>
-        <i class="fa-solid fa-arrow-right"></i>
+        <i className="fa-solid fa-circle-chevron-right"></i>
       </button>
       <div
         style={{
@@ -303,7 +321,7 @@ const GlobeSection = () => {
             <p data-aos="fade-right" className="globe_title primary-font mb-3">
               — {testimonials[active].name}, {testimonials[active].role}
             </p>
-            <button
+            {/* <button
               className={`btn-main mx-auto ${instrument_sans.className}`}
               data-aos="zoom-in"
             >
@@ -311,7 +329,10 @@ const GlobeSection = () => {
               <span>
                 <i className="fa-solid fa-arrow-right"></i>
               </span>
-            </button>
+            </button> */}
+            <div className="d-flex justify-content-center">
+              <FancyButton text="More Reviews"/>
+            </div>
           </div>
         </div>
       </div>

@@ -40,7 +40,7 @@ const AboutUs = () => {
             <div className="padd-x">
                 <h3 className={`${inter.className} abt-heading mb-5`}>[ About us ]</h3>
 
-                <p className={`${instrument_sans.className} abt-para`}>
+                <p className={`${instrument_sans.className} abt-para `}>
                     At Web Design Innovators, we design beautiful and <br />
                     intuitive websites that elevate your brand. Join us in turning <br />
                     ideas into reality.
@@ -121,7 +121,6 @@ const AboutUs = () => {
             </div>
             <div className="padd-x">
                 <p className="primary-font second-para">Where imagination and technology collide in a bold, futuristic aesthetic. Our work blends neon glow, experimental design, and sharp creative strategy.</p>
-
             </div>
         </section>
     )

@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import PageLoader from "./PageLoader";
 import SmoothScroll from "./SmoothScroll";
 
-export default function ClientLayout({ children }) {
+export default function BrandLayout({ children }) {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {

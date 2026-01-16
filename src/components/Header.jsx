@@ -6,10 +6,12 @@ import { useContext, useEffect } from "react"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { sideBarContext } from "@/app/context"
+
 const Header = () => {
-  const { toggleMenu } = useContext(sideBarContext)
+  const { toggleMenu } = useContext(sideBarContext);
 
   useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);   
     const showAnim = gsap.from('header', {
       yPercent: -100,
       paused: true,
