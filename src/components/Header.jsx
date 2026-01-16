@@ -44,7 +44,7 @@ const Header = () => {
             </div>
             <div>
               <button className="menu-btn" onClick={toggleMenu}>
-                <Image src={iconMenu} alt="menu_icon" className={"img-fluid"} /></button>
+                <Image src={iconMenu} alt="menu_icon" className={"img-fluid animation-rot"} /></button>
             </div>
           </div>
         </div>
