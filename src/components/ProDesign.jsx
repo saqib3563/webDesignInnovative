@@ -1,7 +1,6 @@
 "use client";
 
 import { instrument_sans, inter } from "@/app/(web)/assets/fonts/custom";
-// import bottomCard from "@/app/(web)/assets/images/bottom-card.png";
 import serviceCardImage from "@/app/(web)/assets/images/service-card-image.jpg";
 import Image from "next/image";
 import Link from "next/link";
@@ -10,6 +9,7 @@ import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import SwiperComponent from "./slider";
 import { SwiperSlide } from "swiper/react";
+import FancyButton from "./FancyButton";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -22,10 +22,11 @@ const ProDesignSection = () => {
 
   const initProDesignAnimation = () => {
     const width = window.innerWidth;
+
     if (width <= 768) {
-      gsap.set(".card-1", { x: 0, zIndex: 1 });
-      gsap.set(".card-2", { x: 0, zIndex: 2 });
-      gsap.set(".card-3", { x: 0, zIndex: 3 });
+      gsap.set(".card-1", { y: 0, zIndex: 1 });
+      gsap.set(".card-2", { y: 0, zIndex: 2 });
+      gsap.set(".card-3", { y: 0, zIndex: 3 });
       return;
     }
 
@@ -39,20 +40,32 @@ const ProDesignSection = () => {
       invalidateOnRefresh: true,
     };
 
-    gsap.set(".card-1", { x: 0, zIndex: 1 });
-    gsap.set(".card-2", { x: "120%", zIndex: 2 });
-    gsap.set(".card-3", { x: "120%", zIndex: 3 });
+    // First card stays in place
+    gsap.set(".card-1", { y: 0, zIndex: 1 });
+
+    // Cards start from bottom
+    gsap.set(".card-2", { y: "160%", zIndex: 2 });
+    gsap.set(".card-3", { y: "160%", zIndex: 3 });
 
     if (width < 992 && width > 768) {
       obj.start = "10% -25%";
     }
 
     const tl = gsap.timeline({ scrollTrigger: obj });
-    tl.to(".card-2", { x: 0, duration: 1, ease: "none" }).to(".card-3", {
-      x: 0,
-      duration: 1,
-      ease: "none",
-    });
+
+    tl.to(".card-2", {
+      y: 0,
+      duration: 0.3, // thora fast
+      ease: "power2.out",
+    }).to(
+      ".card-3",
+      {
+        y: 0,
+        duration: 0.3, // thora fast
+        ease: "power2.out",
+      },
+      "-=0.15"
+    );
   };
 
   useEffect(() => {
@@ -63,9 +76,9 @@ const ProDesignSection = () => {
     const handleResize = () => {
       const width = window.innerWidth;
       if (width <= 768) {
-        gsap.set(".card-1", { x: 0, zIndex: 1 });
-        gsap.set(".card-2", { x: 0, zIndex: 2 });
-        gsap.set(".card-3", { x: 0, zIndex: 3 });
+        gsap.set(".card-1", { y: 0, zIndex: 1 });
+        gsap.set(".card-2", { y: 0, zIndex: 2 });
+        gsap.set(".card-3", { y: 0, zIndex: 3 });
         return;
       }
       ScrollTrigger.refresh();
@@ -87,41 +100,28 @@ const ProDesignSection = () => {
           <div className="col-md-6 col-12 mb-lg-0 mb-5">
             <span
               className={`${inter.className} abt-heading mb-3 d-block text-start`}
-              data-aos="fade-up"
-              data-aos-delay="200"
             >
               [ Who We Are ]
             </span>
 
-            <h2
-              className="primary-font mb-3"
-              data-aos="fade-up"
-              data-aos-delay="300"
-            >
+            <h2 className="primary-font mb-3 reveal-text">
               Pro design,
               <br /> minus the price.
             </h2>
 
-            <p
-              className="para-section mb-4"
-              data-aos="fade-up"
-              data-aos-delay="400"
-            >
+            <p className="para-section mb-4">
               Grow your brand with high-quality design for a flat monthly fee.
               Work with <br /> senior designers. Subscribe and make as many
               requests as you need — no limits.
             </p>
 
-            <button
-              className={`btn-main ${instrument_sans.className}`}
-              data-aos="zoom-in"
-              data-aos-delay="500"
-            >
+            {/* <button className={`btn-main ${instrument_sans.className}`}>
               <span className="text">Contact Us</span>
               <span>
                 <i className="fa-solid fa-arrow-right"></i>
               </span>
-            </button>
+            </button> */}
+            <FancyButton text="Contact Us"/>
           </div>
 
           {/* RIGHT CARDS - Desktop */}
@@ -130,8 +130,8 @@ const ProDesignSection = () => {
               <div className={`card-border card-${index + 1}`} key={index}>
                 <div className="card-custom text-center">
                   <div className="d-flex justify-content-between align-items-center">
-                    <h3 className="primary-font mb-0">{item.title}</h3>
-                    <Link
+                    <h3 className="primary-font mb-0 ">{item.title}</h3>
+                    {/* <Link
                       href={item.link}
                       className={`btn-main text-decoration-none ${instrument_sans.className}`}
                     >
@@ -139,21 +139,15 @@ const ProDesignSection = () => {
                       <span>
                         <i className="fa-solid fa-arrow-right"></i>
                       </span>
-                    </Link>
+                    </Link> */}
+                    <FancyButton text="Read More"/>
                   </div>
+
                   <Image
                     src={item.image}
                     alt={item.title}
                     className="img-fluid"
                   />
-                  {/* <div className="p-relative">
-                    <Image src={item.icon} alt="pro-icons" className="img-fluid pro-icon" />
-                    <Image
-                      src={bottomCard}
-                      alt="pro-icons"
-                      className="circular_area"
-                    />
-                  </div> */}
                 </div>
               </div>
             ))}

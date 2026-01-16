@@ -2,14 +2,16 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "../globals.css";
 import "../responsive.css";
-import ClientLayout from "@/components/ClientLayout";
+// import ClientLayout from "@/components/ClientLayout";
 import Footer from "@/components/Footer";
 import AOSInit from "@/components/AOSInit";
 import Header from "@/components/Header";
-import { SideBarProvider } from "../context";
 import SideBar from "@/components/side-bar";
 import MagicCursor from "@/components/MagicCursor";
 import MagneticButton from "@/components/magnetic-logic";
+import { SideBarProvider } from "../context";
+import BrandLayout from "@/components/BrandLayout";
+import ScrollRevealHandler from "@/components/ScrollRevealHandler";
 
 export const metadata = {
   title: "Create Next App",
@@ -20,16 +22,17 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
+        <ScrollRevealHandler />
         <AOSInit />
         <MagicCursor />
         <SideBarProvider>
           <SideBar />
-          <ClientLayout>
+          <BrandLayout>
             <Header />
             <main>{children}</main>
             <MagneticButton />
             <Footer />
-          </ClientLayout>
+          </BrandLayout>
         </SideBarProvider>
       </body>
     </html>

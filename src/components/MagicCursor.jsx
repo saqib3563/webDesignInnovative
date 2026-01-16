@@ -90,7 +90,7 @@ const MagicCursor = () => {
 
     document.addEventListener('mousemove', moveCursor);
 
-    const interactives = document.querySelectorAll('a, button, .text-1, .btn-main');
+    const interactives = document.querySelectorAll('a, button, .text-1, .btn-main, .fancy-btn');
     interactives.forEach(el => {
       el.addEventListener('mouseenter', handleHover);
       el.addEventListener('mouseleave', handleLeave);

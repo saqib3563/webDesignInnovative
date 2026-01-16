@@ -157,7 +157,7 @@
     }
 
     .card-custom {
-        padding: 30px 30px 0;
+        padding: 30px 30px;
     }
 
     .card-custom h3 {
@@ -264,7 +264,8 @@
 
 
 
-    .btn-main {
+    .btn-main,
+    .fancy-btn {
         height: 45px;
         font-size: 14px;
         max-width: fit-content !important;
@@ -273,7 +274,8 @@
         padding: 2px 2px 2px 25px;
     }
 
-    .btn-main span:last-child {
+    .btn-main span:last-child,
+    .fancy-btn .icon-wrapper {
         height: 40px;
         width: 40px;
     }
@@ -494,7 +496,8 @@
     }
 
 
-    .btn-main span:last-child {
+    .btn-main span:last-child,
+    .fancy-btn .icon-wrapper {
         width: 40px;
         height: 40px;
     }
@@ -608,10 +611,11 @@
 
 
     .card-custom {
-        padding: 25px 25px 0;
+        padding: 25px 25px;
     }
 
-    .btn-main span:last-child {
+    .btn-main span:last-child,
+    .fancy-btn .icon-wrapper {
         width: 40px;
         height: 40px;
     }
@@ -866,10 +870,14 @@
         gap: 25px;
     }
 
-    .next-person {
-        display: none;
+    .next-person,
+    .previous-person {
+        padding: 9px;
+        top: 10px;
+        font-size: 21px;
     }
-
+    
+    
     .last_box_web {
         width: 300px;
         height: 300px;
@@ -980,7 +988,8 @@
     }
 
     .globe-para,
-    .btn-main {
+    .btn-main,
+    .fancy-btn {
         font-size: 12px;
     }
 
@@ -990,7 +999,8 @@
         font-size: 16px;
     }
 
-    .btn-main span:last-child {
+    .btn-main span:last-child,
+    .fancy-btn .icon-wrapper {
         width: 40px;
         height: 40px;
     }
@@ -1091,7 +1101,8 @@
         height: 3rem;
     }
 
-    .card-custom .btn-main .text {
+    .card-custom .btn-main .text,
+    .card-custom .fancy-btn .text {
         display: none;
     }
 
@@ -1172,7 +1183,8 @@
     } */
 
 
-    .btn-main span:last-child {
+    .btn-main span:last-child,
+    .fancy-btn .icon-wrapper {
         width: 35px;
         height: 35px;
     }
@@ -1326,6 +1338,14 @@
     .accordion-custom .para-section {
         text-align: left !important;
     }
+
+    .text-wrapper .top {
+        transform: translateY(2px);
+    }
+
+    .fancy-btn:hover .bottom {
+        transform: translateY(-15px);
+    }
 }
 
 @media (max-width:480px) {
@@ -1357,7 +1377,8 @@
         width: 45px !important;
     }
 
-    .btn-main {
+    .btn-main,
+    .fancy-btn {
         height: 40px;
     }
 

@@ -39,7 +39,7 @@ const ServiceSection = () => {
     <section
       ref={sectionRef}
       style={{ backgroundImage: `url(${serviceBg.src})` }}
-      className="padd-y-2 padd-x service-section position-relative"
+      className=" padd-x service-section position-relative"
     >
       <div className="container-fluid">
         {/* Heading */}
@@ -64,7 +64,7 @@ const ServiceSection = () => {
             <div className="service-link-area">
               <Link href="#" className="text-end primary-font">
                 Web Design Dev
-                <span class="d-none d-xxl-inline">elopment</span>
+                <span className="d-none d-xxl-inline">elopment</span>
               </Link>
               <span className="divide"></span>
               <Link href="#" className="primary-font">App Development</Link>
