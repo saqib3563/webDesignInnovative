@@ -1,4 +1,5 @@
 import AboutUsBanner from "@/components/AboutUsBanner";
+import AwardSection from "@/components/AwardSection";
 import FaqSection from "@/components/FaqsSection";
 import GlobeSection from "@/components/GlobeSection";
 import MissionSection from "@/components/MissionSection";
@@ -10,6 +11,8 @@ const page = () => {
       <AboutUsBanner />
 
       <MissionSection/>
+
+      <AwardSection/>
 
       {/* Globe Section */}
       <GlobeSection />

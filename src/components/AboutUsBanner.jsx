@@ -1,14 +1,49 @@
 "use client";
 import Link from "next/link";
 import { instrument_sans, inter } from "@/app/(web)/assets/fonts/custom";
-import hero_bg_2 from "@/app/(web)/assets/images/banner-image-2.png";
+// import hero_bg_2 from "@/app/(web)/assets/images/banner-image-2.png";
+import hero_bg from "@/app/(web)/assets/images/Hero.webp";
+import { useEffect } from "react";
+import gsap from "gsap";
+
 
 const AboutUsBanner = () => {
+
+  useEffect(() => {
+    const counters = gsap.utils.toArray(".countt h2");
+
+    counters.forEach((counter) => {
+      const text = counter.innerText.trim(); 
+      const endValue = parseInt(text.replace(/\D/g, ""));
+      const suffix = text.replace(/\d/g, "");
+
+      const obj = { value: 0 };
+
+ 
+      counter.innerText = "0" + suffix;
+
+      gsap.to(obj, {
+        value: endValue,
+        duration: 3.5, 
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: counter,
+          start: "top 80%",
+          once: true, 
+        },
+        onUpdate: () => {
+          counter.innerText = Math.floor(obj.value) + suffix;
+        },
+      });
+    });
+  }, []);
+
+
   return (
     <section
       className="padd-y padd-x about-page-banner"
       style={{
-        backgroundImage: `url(${hero_bg_2.src})`,
+        backgroundImage: `url(${hero_bg.src})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
         position: "relative",
