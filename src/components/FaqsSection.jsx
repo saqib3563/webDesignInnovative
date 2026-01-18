@@ -5,6 +5,7 @@ import { FaqAnimation } from "@/utils/animations/faqs";
 import Image from "next/image";
 import web_box from "@/app/(web)/assets/images/innovation_box_2.png";
 import client_image_7 from "@/app/(web)/assets/images/client_image-7.png";
+import ScrollRevealHandler from "@/components/ScrollRevealHandler";
 import FancyButton from "./FancyButton";
 const FaqSection = () => {
   const [currentAccordion, setCurrentAccordion] = useState(0);
@@ -56,6 +57,7 @@ const FaqSection = () => {
   }, []);
   return (
     <section className="faq-sec">
+      <ScrollRevealHandler />
       <div className="container-fluid">
         <div className="row  padd-y padd-x row-gap-3 align-items-center">
           <div className="col-lg-5 col-12">
@@ -64,7 +66,7 @@ const FaqSection = () => {
             >
               [ Faqs ]
             </span>
-            <h2 className="primary-font" data-aos="fade-right">
+            <h2 className="primary-font reveal-text" data-aos="fade-right">
               Got <br />
               Questions?
             </h2>

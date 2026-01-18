@@ -12,6 +12,7 @@ import Image from "next/image";
 import SwiperComponent from "./slider";
 import { SwiperSlide } from "swiper/react";
 import { useLayoutEffect } from "react";
+import ScrollRevealHandler from "@/components/ScrollRevealHandler";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -74,6 +75,7 @@ const Blogs = () => {
 
   return (
     <section className="padd-y padd-x blogs">
+      <ScrollRevealHandler />
       <div className="container-fluid">
         {/* HEADING AREA */}
         <div className="row align-items-center mb-5">

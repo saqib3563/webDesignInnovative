@@ -3,6 +3,8 @@ import AwardSection from "@/components/AwardSection";
 import FaqSection from "@/components/FaqsSection";
 import GlobeSection from "@/components/GlobeSection";
 import MissionSection from "@/components/MissionSection";
+import StreamSection from "@/components/StreamSection";
+import TechnologiesSection from "@/components/TechnologiesSection";
 import React from "react";
 
 const page = () => {
@@ -10,9 +12,13 @@ const page = () => {
     <>
       <AboutUsBanner />
 
-      <MissionSection/>
+      <MissionSection />
 
-      <AwardSection/>
+      <AwardSection />
+
+      <TechnologiesSection />
+
+      <StreamSection />
 
       {/* Globe Section */}
       <GlobeSection />

@@ -25,10 +25,37 @@ import "swiper/css/autoplay";
 gsap.registerPlugin(ScrollTrigger)
 
 const AboutUs = () => {
-    useEffect(() => {
+useEffect(() => {
+        gsap.registerPlugin(ScrollTrigger)
+
+        // Store original text content before animation
+        const headingEl = document.querySelector('.abt-heading')
+        const paraEl = document.querySelector('.abt-para')
+        const secondParaEl = document.querySelector('.second-para')
+        
+        const originalTexts = {
+            heading: headingEl?.textContent,
+            para: paraEl?.innerHTML,
+            secondPara: secondParaEl?.textContent
+        }
+
         const ctx = gsap.context(AnimationAboutUs)
 
-        return () => ctx.revert()
+        return () => {
+            // Restore original text content
+            if (headingEl && originalTexts.heading) {
+                headingEl.innerHTML = originalTexts.heading
+            }
+            if (paraEl && originalTexts.para) {
+                paraEl.innerHTML = originalTexts.para
+            }
+            if (secondParaEl && originalTexts.secondPara) {
+                secondParaEl.innerHTML = originalTexts.secondPara
+            }
+            
+            ctx.revert()
+            ScrollTrigger.getAll().forEach(trigger => trigger.kill())
+        }
     }, [])
 
 

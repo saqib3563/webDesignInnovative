@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useLayoutEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
@@ -26,7 +26,7 @@ import awardLogo7 from "@/app/(web)/assets/images/awardlogo7.webp";
 gsap.registerPlugin(ScrollTrigger);
 
 const AwardSection = () => {
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (window.innerWidth <= 768) return;
 
     const section = document.querySelector("#portfolio");

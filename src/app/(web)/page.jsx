@@ -1,6 +1,6 @@
 import AboutUs from "@/components/AboutSection";
 import Blogs from "@/components/BlogsSection";
-import FancyButton from "@/components/FancyButton";
+// import FancyButton from "@/components/FancyButton";
 import FaqSection from "@/components/FaqsSection";
 import GlobeSection from "@/components/GlobeSection";
 import HeroBanner from "@/components/HeroBanner";
