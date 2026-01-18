@@ -11,7 +11,6 @@ import MagicCursor from "@/components/MagicCursor";
 import MagneticButton from "@/components/magnetic-logic";
 import { SideBarProvider } from "../context";
 import BrandLayout from "@/components/BrandLayout";
-import ScrollRevealHandler from "@/components/ScrollRevealHandler";
 
 export const metadata = {
   title: "Create Next App",
@@ -22,7 +21,6 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <ScrollRevealHandler />
         <AOSInit />
         <MagicCursor />
         <SideBarProvider>

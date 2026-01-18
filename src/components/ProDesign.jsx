@@ -4,12 +4,13 @@ import { instrument_sans, inter } from "@/app/(web)/assets/fonts/custom";
 import serviceCardImage from "@/app/(web)/assets/images/service-card-image.jpg";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect } from "react";
+import { useLayoutEffect } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import SwiperComponent from "./slider";
 import { SwiperSlide } from "swiper/react";
 import FancyButton from "./FancyButton";
+import ScrollRevealHandler from "@/components/ScrollRevealHandler";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -40,7 +41,6 @@ const ProDesignSection = () => {
       invalidateOnRefresh: true,
     };
 
-    // First card stays in place
     gsap.set(".card-1", { y: 0, zIndex: 1 });
 
     // Cards start from bottom
@@ -68,7 +68,7 @@ const ProDesignSection = () => {
     );
   };
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const ctx = gsap.context(() => {
       initProDesignAnimation();
     });
@@ -94,6 +94,7 @@ const ProDesignSection = () => {
 
   return (
     <section className="padd-x pro-section">
+      <ScrollRevealHandler />
       <div className="container-fluid">
         <div className="row">
           {/* LEFT CONTENT */}
@@ -114,40 +115,36 @@ const ProDesignSection = () => {
               Work with <br /> senior designers. Subscribe and make as many
               requests as you need — no limits.
             </p>
-
-            {/* <button className={`btn-main ${instrument_sans.className}`}>
-              <span className="text">Contact Us</span>
-              <span>
-                <i className="fa-solid fa-arrow-right"></i>
-              </span>
-            </button> */}
-            <FancyButton text="Contact Us"/>
+            <FancyButton text="Contact Us" />
           </div>
 
           {/* RIGHT CARDS - Desktop */}
           <div className="col-md-6 col-12 d-none d-md-block position-relative">
             {proDesignData.map((item, index) => (
               <div className={`card-border card-${index + 1}`} key={index}>
-                <div className="card-custom text-center">
-                  <div className="d-flex justify-content-between align-items-center">
-                    <h3 className="primary-font mb-0 ">{item.title}</h3>
-                    {/* <Link
-                      href={item.link}
-                      className={`btn-main text-decoration-none ${instrument_sans.className}`}
-                    >
-                      <span className="text">Read More</span>
+                <div className="card-custom">
+                  <div className="card-custom-child">
+                    <Image
+                      src={item.image}
+                      alt={item.title}
+                      className="img-fluid"
+                    />
+                    <Link href={item.link} className="portfolio-btn">
                       <span>
-                        <i className="fa-solid fa-arrow-right"></i>
+                        <i className="fa-solid fa-eye"></i>
                       </span>
-                    </Link> */}
-                    <FancyButton text="Read More"/>
+                    </Link>
+                    <div className="portfolio-card-categories">
+                      <p>
+                        <Link href="item.link">Web design</Link>
+                      </p>
+                    </div>
                   </div>
-
-                  <Image
-                    src={item.image}
-                    alt={item.title}
-                    className="img-fluid"
-                  />
+                  <div className="card-custom-content">
+                    <h3 className="primary-font mb-0 ">{item.title}</h3>
+                    <h6 className="card-paragraph">Increase Instagram engagement and drive traffic to website.</h6>
+                    {/* <FancyButton text="Read More"/> */}
+                  </div>
                 </div>
               </div>
             ))}
